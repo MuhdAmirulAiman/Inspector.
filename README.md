@@ -32,7 +32,9 @@ Use the package manager [npm](https://docs.npmjs.com/cli/v6/commands/npm-install
 
 ```bash
 cd .\FrontEnd\tigerlab-assesment\
+#Install Packages
 npm install i
+#Run FrontEnd
 npm run dev
 ```
 
@@ -40,7 +42,9 @@ npm run dev
 
 ```bash
 cd .\BackEnd\
+# Install Packages
 npm install i
+# Run BackEnd
 node_modules/.bin/json-server --watch ./mock/db.js --config ./mock/config.json
 ```
 
