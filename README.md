@@ -32,9 +32,9 @@ Use the package manager [npm](https://docs.npmjs.com/cli/v6/commands/npm-install
 
 ```bash
 cd .\FrontEnd\tigerlab-assesment\
-#Install Packages
+# Install Packages
 npm install i
-#Run FrontEnd
+# Run FrontEnd
 npm run dev
 ```
 
