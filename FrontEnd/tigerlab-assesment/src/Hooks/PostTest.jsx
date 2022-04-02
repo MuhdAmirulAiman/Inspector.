@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useMutation } from "react-query";
+import { url } from "../Components/utils";
 
 export const postTest = (route) => {
-  return axios.post(`http://localhost:8001/api/v1/tests${route}`);
+  return axios.post(url + route);
 };
 
 export const PerformTest = (onSuccess, onError) => {

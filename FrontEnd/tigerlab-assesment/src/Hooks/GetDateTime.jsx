@@ -4,10 +4,6 @@ export const getCurrentDate = () => {
 };
 export const getCurrentTime = () => {
   var today = new Date();
-  var time = today
-    .toLocaleTimeString()
-    .replace("am", "")
-    .replace("pm", "")
-    .replace(/ /g, "");
+  var time = today.toLocaleTimeString().replace(/am|pm|AM|PM|\s/g, "");
   return time;
 };

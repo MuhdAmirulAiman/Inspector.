@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { PerformTest } from "../Hooks/PostTest";
 import { Flip, toast } from "react-toastify";
 import { getCurrentDate, getCurrentTime } from "../Hooks/GetDateTime";
@@ -20,7 +20,7 @@ export const Card = ({ Test }) => {
   };
 
   const success = () => {
-    toast.success("Test Resulted In Success", {
+    toast.success(TestName.current + " Success", {
       position: "top-center",
       autoClose: 2000,
       transition: Flip,
@@ -29,7 +29,7 @@ export const Card = ({ Test }) => {
   };
 
   const failed = () =>
-    toast.error("Test Resulted In Failure", {
+    toast.error(TestName.current + " Fail", {
       position: "top-center",
       autoClose: 2000,
       transition: Flip,
@@ -50,7 +50,7 @@ export const Card = ({ Test }) => {
         if (data.data.result === "true") {
           Result = "Success";
         } else {
-          Result = "Failed";
+          Result = "Fail";
         }
 
         let Time = getCurrentTime();
@@ -71,22 +71,24 @@ export const Card = ({ Test }) => {
   return (
     <>
       {Object.keys(Test).map((key, index) => (
-        <div key={index} className="flex flex-wrap flex-col m-6 mt-5 ">
-          <h5 className="category">{`${key}`}</h5>
-          <div className="flex flex-wrap flex-col mt-2 pt-1 gap-1 ">
-            {Test[key].items.map((test, index) => (
-              <div
-                onClick={() => {
-                  sendPostReq(test.route), (TestName.current = test.name);
-                }}
-                key={index}
-                className="rounded-lg bg-dark-900 text-base w-full p-3 transform transition text-teal-500 duration-500 testcard hover:(cursor-pointer bg-teal-500 text-white scale-102) "
-              >
-                {test.name}
-              </div>
-            ))}
+        <React.Fragment key={index}>
+          <div key={index} className="flex flex-wrap flex-col m-6 mt-5 ">
+            <h5 className="category">{`${key}`}</h5>
+            <div className="flex mt-2 pt-1 gap-1 md:(text-center p-0) <md:flex-col ">
+              {Test[key].items.map((test, index) => (
+                <div
+                  onClick={() => {
+                    sendPostReq(test.route), (TestName.current = test.name);
+                  }}
+                  key={index}
+                  className="rounded-lg bg-dark-900 text-base  p-3 transform transition text-teal-500 duration-200 capitalize testcard hover:(cursor-pointer bg-teal-500 text-white scale-102) "
+                >
+                  {test.name}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </React.Fragment>
       ))}
     </>
   );

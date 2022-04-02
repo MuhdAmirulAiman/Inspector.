@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useQuery } from "react-query";
+import { url } from "../Components/utils";
 
 const fetchTest = () => {
-  return axios.get("http://localhost:8001/api/v1/tests");
+  return axios.get(url);
 };
 
 export const GetTestList = (onSuccess, onError) => {

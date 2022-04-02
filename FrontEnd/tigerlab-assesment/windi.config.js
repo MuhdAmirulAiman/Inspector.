@@ -24,13 +24,11 @@ export default defineConfig({
     },
   },
   shortcuts: {
-    btn: "py-2 px-4 font-semibold rounded-lg shadow-md",
-    "btn-green": "text-white bg-green-500 hover:bg-green-700",
     header_text: "no-underline text-teal-500 font-semibold tracking-tight",
     category:
       "font-medium text-xl tracking-tight text-gray-800 uppercase underline decoration-teal-500",
     tableheader:
-      "border-l font-medium bg-dark-900 border-light-50  text-md text-left text-teal-500",
+      "border font-medium bg-dark-900 border-teal-500  text-md text-left text-teal-500",
     backtodashboardbtn:
       "rounded-lg m-auto   text-base text-center mb-6 p-3   transform transition text-teal-500 w-[14rem] duration-500 hover:(cursor-pointer bg-teal-500 text-white scale-102) ",
   },
