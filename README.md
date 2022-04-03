@@ -63,6 +63,12 @@ npm run cytestui
 npm run cytestcli
 ```
 
+## Future Improvement:
+
+1. Add sorting feature in history page.
+2. Add history summary of all the test.
+3. Add proper database that stores test history.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
