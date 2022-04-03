@@ -6,6 +6,7 @@ const fetchTest = () => {
   return axios.get(url);
 };
 
+// Get Function
 export const GetTestList = (onSuccess, onError) => {
   return useQuery("test", fetchTest, {
     staleTime: 50000, //check for update every 5 minutes

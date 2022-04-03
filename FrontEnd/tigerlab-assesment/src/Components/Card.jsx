@@ -12,13 +12,14 @@ export const Card = ({ Test }) => {
   const Route = useRef("");
   const TestName = useRef("");
 
+  //Post Req Function
   const { mutate: performTest, data, isSuccess, isError } = PerformTest();
-
   const sendPostReq = (route) => {
     Route.current = route;
     performTest(route);
   };
 
+  //Success toast message
   const success = () => {
     toast.success(TestName.current + " Success", {
       position: "top-center",
@@ -28,7 +29,8 @@ export const Card = ({ Test }) => {
     });
   };
 
-  const failed = () =>
+  //Fail toast message
+  const fail = () =>
     toast.error(TestName.current + " Fail", {
       position: "top-center",
       autoClose: 2000,
@@ -38,12 +40,12 @@ export const Card = ({ Test }) => {
 
   useEffect(() => {
     if (isSuccess) {
-      console.log(TestName.current, "Performed Successfully");
       if (data.data.result === "true") {
         success();
       } else {
-        failed();
+        fail();
       }
+      // Push Performed Test Into Array In localHistory
       setHistory((prevItems) => {
         let Test = TestName.current;
         let Result;
@@ -61,7 +63,6 @@ export const Card = ({ Test }) => {
       });
     }
     if (isError) {
-      console.log(TestName.current, "Failed");
       alert(
         "There's a problem on our side. Please wait or contact our support for assistance. Thank you for understanding."
       );

@@ -4,10 +4,10 @@ import { Card } from "./Card";
 
 export const Dashboard = () => {
   const [Test, setTest] = useState([]);
-  const { isLoading, data, isError, error } = GetTestList();
+  const { data } = GetTestList();
 
   useEffect(() => {
-    // pushing all children into an array
+    // combine all test into one array along with its respective category
     let children = [];
     data?.data.tests.map((item) =>
       item.tests.map((subitem) => {
@@ -16,6 +16,7 @@ export const Dashboard = () => {
       })
     );
 
+    // rearrange above array into sections of their category
     setTest(
       children.reduce((acc, curr) => {
         const { category, name, route } = curr;
